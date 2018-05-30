@@ -11,7 +11,7 @@ export default class UserProfile extends Component {
   constructor(props) {
     super(props);
 
-    this.routeParam = props.match.params.id;
+    this.paramId = props.match.params.id;
 
     this.state = {
       user: {},
@@ -24,7 +24,7 @@ export default class UserProfile extends Component {
   }
 
   componentWillMount() {
-    fetch(`https://demo-rails-backend.herokuapp.com/users/${this.routeParam}`)
+    fetch(`https://demo-rails-backend.herokuapp.com/users/${this.paramId}`)
     .then(response => response.json())
     .then((user) => {
       this.setState({ user });
